@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-// IMPORTANTE: esse import precisa existir
-use App\Models\Recado;
-
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Recado;
 
 class User extends Authenticatable
 {
@@ -25,7 +23,7 @@ class User extends Authenticatable
 
     /**
      * Relacionamento:
-     * Um usuário tem vários recados
+     * Um usuário pode ter vários recados
      */
     public function recados()
     {
@@ -39,4 +37,15 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * Casts (opcional, mas recomendado no Laravel)
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
 }
