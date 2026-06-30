@@ -31,18 +31,15 @@ class RecadoController extends Controller
 public function update(Request $request, $id)
 {
     $request->validate([
-        'titulo' => 'required|string|max:100',
-        'texto'  => 'required|string',
+        'titulo' => 'sometimes|string|max:100',
+        'texto'  => 'sometimes|string',
     ]);
 
     $recado = Recado::where('id', $id)
         ->where('user_id', auth()->id())
         ->firstOrFail();
 
-    $recado->update([
-        'titulo' => $request->titulo,
-        'texto'  => $request->texto,
-    ]);
+    $recado->update($request->only('titulo', 'texto'));
 
     return response()->json($recado);
 }
