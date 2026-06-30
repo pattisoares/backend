@@ -27,6 +27,26 @@ class RecadoController extends Controller
         ]);
     }
 
+    // ATUALIZAR recado
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'titulo' => 'required|string|max:100',
+        'texto'  => 'required|string',
+    ]);
+
+    $recado = Recado::where('id', $id)
+        ->where('user_id', auth()->id())
+        ->firstOrFail();
+
+    $recado->update([
+        'titulo' => $request->titulo,
+        'texto'  => $request->texto,
+    ]);
+
+    return response()->json($recado);
+}
+
     // DELETAR recado
     public function destroy($id)
     {
