@@ -1,3 +1,10 @@
+## Projeto completo
+
+Este projeto está dividido em dois repositórios:
+
+- Backend (Laravel): https://github.com/pattisoares/backend
+- Frontend (React): https://github.com/pattisoares/frontend
+
 # API - Cadastro e Lista de Recados
 
 API desenvolvida em Laravel para gerenciamento de usuários e recados pessoais.
@@ -64,6 +71,13 @@ A API estará disponível em:
 ```
 http://127.0.0.1:8000
 ```
+### 7. Frontend
+
+A interface da aplicação está disponível no repositório:
+
+👉 https://github.com/pattisoares/frontend
+
+Após configurar e iniciar esta API, faça o download do frontend e siga as instruções presentes no README para executar a aplicação completa.
 
 ## Rotas principais
 
