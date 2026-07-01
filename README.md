@@ -78,7 +78,7 @@ No Linux/macOS:
 cp .env.example .env
 ```
 
-Configure as credenciais do MySQL no arquivo `.env`, informando um banco de dados existente.
+Configure as credenciais do MySQL no arquivo `.env`, informando um banco de dados existente ou criando um novo no MySQL.
 
 ### 6. Gerar a chave da aplicação
 
