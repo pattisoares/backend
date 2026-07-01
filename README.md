@@ -26,6 +26,15 @@ API desenvolvida em Laravel para gerenciamento de usuários e recados pessoais.
 - Edição de recados
 - Exclusão de recados
 
+## Pré-requisitos
+
+Antes de executar o projeto, é necessário ter instalado:
+
+- Git
+- PHP 8 ou superior
+- Composer
+- MySQL 8
+
 ## Como executar o projeto
 
 ### 1. Clonar o repositório
