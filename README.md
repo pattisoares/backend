@@ -37,39 +37,62 @@ Antes de executar o projeto, é necessário ter instalado:
 
 ## Como executar o projeto
 
-### 1. Clonar o repositório
+### 1. Escolha uma pasta onde deseja salvar o projeto
+
+Exemplo:
+
+```text
+D:\ProjetoRecados
+```
+Abra o terminal no VS Code nessa pasta
+
+### 2. Clonar o repositório
 
 ```bash
 git clone https://github.com/pattisoares/backend.git
 ```
 
-### 2. Instalar as dependências
+### 3. Acesse a pasta criada pelo Git
+
+```bash
+cd backend
+```
+
+### 4. Instalar as dependências
 
 ```bash
 composer install
 ```
 
-### 3. Configurar o arquivo .env
+### 5. Criar e Configurar o arquivo .env
+
+No Windows:
+
+```cmd
+copy .env.example .env
+```
+
+No Linux/macOS:
 
 ```bash
 cp .env.example .env
 ```
 
-Edite o arquivo `.env` com as configurações do seu banco de dados.
+Configure as credenciais do MySQL no arquivo `.env`, informando um banco de dados existente.
 
-### 4. Gerar a chave da aplicação
+### 6. Gerar a chave da aplicação
 
 ```bash
 php artisan key:generate
 ```
 
-### 5. Executar as migrations
+### 7. Executar as migrations
 
 ```bash
 php artisan migrate
 ```
 
-### 6. Iniciar o servidor
+### 8. Iniciar o servidor
 
 ```bash
 php artisan serve
@@ -80,7 +103,7 @@ A API estará disponível em:
 ```
 http://127.0.0.1:8000
 ```
-### 7. Frontend
+## Frontend
 
 A interface da aplicação está disponível no repositório:
 
