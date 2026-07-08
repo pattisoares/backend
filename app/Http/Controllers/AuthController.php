@@ -14,11 +14,24 @@ class AuthController extends Controller
     // =========================
     public function register(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required',
+                'email' => 'required|email|unique:users',
+                'password' => 'required|min:6|confirmed',
+            ],
+            [
+                'name.required' => 'Informe seu nome.',
+
+                'email.required' => 'Informe um e-mail.',
+                'email.email' => 'Informe um e-mail válido.',
+                'email.unique' => 'Este e-mail já está cadastrado.',
+
+                'password.required' => 'Informe uma senha.',
+                'password.min' => 'A senha deve ter pelo menos 6 caracteres.',
+                'password.confirmed' => 'As senhas não coincidem.',
+            ]
+        );
 
         $user = User::create([
             'name' => $request->name,
@@ -41,7 +54,7 @@ class AuthController extends Controller
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
-                'message' => 'Credenciais inválidas'
+                'message' => 'E-mail ou senha incorretos.'
             ], 401);
         }
 
@@ -63,7 +76,7 @@ class AuthController extends Controller
         $request->user()->currentAccessToken()->delete();
 
         return response()->json([
-            'message' => 'Logout realizado'
+            'message' => 'Logout realizado.'
         ]);
     }
 }
