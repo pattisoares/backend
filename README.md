@@ -11,10 +11,16 @@ API desenvolvida em Laravel para gerenciamento de usuários e recados pessoais.
 
 ## Tecnologias
 
-- PHP 8
-- Laravel 11+
-- Laravel Sanctum
-- MySQL 8
+- PHP 8.3+
+- Laravel 13.8
+- Laravel Sanctum 4.0
+- MySQL 8.0
+
+## Ferramentas utilizadas
+
+- Laravel Tinker (testes e consultas ao banco de dados)
+- Git e GitHub (versionamento)
+- Composer
 
 ## Funcionalidades
 
@@ -30,11 +36,11 @@ API desenvolvida em Laravel para gerenciamento de usuários e recados pessoais.
 
 Antes de executar o projeto, é necessário ter instalado:
 
-- Node.js v20+
-- Git
-- PHP 8.2+
-- Composer 2
-- MySQL 8 rodando
+- PHP 8.3 ou superior
+- Composer 2.10 ou superior
+- Node.js 20 ou superior
+- MySQL 8.0 rodando
+- Git 2.54.0 ou superior
 
 ## Como executar o projeto
 
