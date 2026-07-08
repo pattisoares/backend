@@ -51,23 +51,34 @@ class AuthController extends Controller
     // LOGIN
     // =========================
     public function login(Request $request)
-    {
-        if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json([
-                'message' => 'E-mail ou senha incorretos.'
-            ], 401);
-        }
+{
+    $request->validate(
+        [
+            'email' => 'required|email',
+            'password' => 'required',
+        ],
+        [
+            'email.required' => 'Informe um e-mail.',
+            'email.email' => 'Informe um e-mail válido.',
+            'password.required' => 'Informe uma senha.',
+        ]
+    );
 
-        $user = $request->user();
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
+    if (!Auth::attempt($request->only('email', 'password'))) {
         return response()->json([
-            'user' => $user,
-            'token' => $token
-        ]);
+            'message' => 'E-mail ou senha incorretos.'
+        ], 401);
     }
 
+    $user = $request->user();
+
+    $token = $user->createToken('auth_token')->plainTextToken;
+
+    return response()->json([
+        'user' => $user,
+        'token' => $token
+    ]);
+}
     // =========================
     // LOGOUT
     // =========================
